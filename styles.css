@@ -5,7 +5,43 @@
 body {
     font-family: 'Roboto', sans-serif;
     
-    background-color: yellow;
+    /* background-color: yellow; */
+
+}
 
 
+.calc-btn {
+    background-color: silver;
+    color: black;
+
+    width: 25px;
+    height: 45px;
+
+    border: 1px solid gray;
+    text-align: center;
+    cursor: pointer;
+
+    font-size: 32px;
+    font-weight: 100;
+
+    padding-top: 3px;
+}
+
+.calc-btn:hover {
+    background-color: orange;
+}
+
+
+.row {
+    display: table;
+    table-layout: fixed;
+    width: 200px;
+}
+
+.column {
+    display: table-cell;
+}
+
+#calc-zero {
+    
 }
