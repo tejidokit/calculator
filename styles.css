@@ -43,13 +43,13 @@ body {
 }
 
 #calc-zero {
-    width: 98.6666666666667px;
+    width: 52.6666666666667px;
     border-radius: 0 0 0 7px;
 
 }
 
 #calc-clear {
-    width: 98.6666666666667px;
+    width: 52.6666666666667px;
     
 }
 
@@ -85,3 +85,7 @@ h1 {
     border-radius: 0 0 7px 0;
 }
 
+/* subtract 100 px from 50% since .row has a width of 200px */
+#calc-parent {
+    margin-left: calc(50% - 100px);
+}
