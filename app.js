@@ -1,5 +1,4 @@
 
-
 // ### variable for each btn ###
 
 var oneBtn = document.getElementById('calc-one');
@@ -18,8 +17,7 @@ var clearBtn = document.getElementById('calc-clear');
 var backspaceBtn = document.getElementById('calc-backspace');
 var displayValElement = document.getElementById('calc-display-val');
 
-var calcNumBtns = document.getElementsByClassName('calc-btn-num');
-var calcOperatorBtns = documenet.getElementsByClassName('calc-btn-operator);
+
 
 
 // ### create Even Listner for each button  ###
@@ -28,9 +26,17 @@ var displayVal = '0';
 var pendingVal;
 var evalStringArray = [];
 
-var updateDisplayVal = (clickObj) => {
-    var btnTxt = clickObj.target.innerText;
+var calcNumBtns = document.getElementsByClassName('calc-btn-num');
+var calcOperatorBtns = document.getElementsByClassName('calc-btn-operator');
 
+var updateDisplayVal = (clickObj) => {
+    var btnText = clickObj.target.innerText;
+
+    if(displayVal === '0')
+        displayVal = '';
+
+    displayVal += btnText;
+    displayValElement.innerText = displayVal;
 
 }
 
