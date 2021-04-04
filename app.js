@@ -42,3 +42,8 @@ for (let i = 0; i < calcNumBtns.length; i++) {
 //     calcOperatorBtns[i].addEventListener('click', performOperation, false);
 
 // }
+
+clearBtn.onclick = () => {
+    displayVal = '0';
+    
+}
