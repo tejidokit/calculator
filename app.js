@@ -29,7 +29,11 @@ var evalStringArray = [];
 var calcNumBtns = document.getElementsByClassName('calc-btn-num');
 var calcOperatorBtns = document.getElementsByClassName('calc-btn-operator');
 
+
+// show input to screen
+
 var updateDisplayVal = (clickObj) => {
+    // when a button is pressed it will pass that info to btnText
     var btnText = clickObj.target.innerText;
 
     if(displayVal === '0')
@@ -40,6 +44,9 @@ var updateDisplayVal = (clickObj) => {
 
 }
 
+
+// whenever calcNumBtns gets clicked, updateDisplayVal will trigger, 
+// and the click event (clickObj) will automatically pass to the updateDisplayVal function
 for (let i = 0; i < calcNumBtns.length; i++) {
     calcNumBtns[i].addEventListener('click', updateDisplayVal, false);
 }
