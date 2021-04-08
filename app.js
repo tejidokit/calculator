@@ -36,9 +36,11 @@ var updateDisplayVal = (clickObj) => {
     // when a button is pressed it will pass that info to btnText
     var btnText = clickObj.target.innerText;
 
+    // value added to string if it's not zero
     if(displayVal === '0')
         displayVal = '';
 
+    // displayVal will not show the button that is pressed
     displayVal += btnText;
     displayValElement.innerText = displayVal;
 
@@ -56,7 +58,16 @@ for (let i = 0; i < calcNumBtns.length; i++) {
 
 // }
 
+
+// clear button
 clearBtn.onclick = () => {
     displayVal = '0';
+    pendingVal = undefined;
+    evalStringArray = [];
+    displayValElement.innerHTML = displayVal;
+}
+
+backspaceBtn.onclick = () => {
+    let lengthOfDisplayVal = displayVal.length;
     
 }
