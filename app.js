@@ -67,7 +67,17 @@ clearBtn.onclick = () => {
     displayValElement.innerHTML = displayVal;
 }
 
+
+// backspace button
+
 backspaceBtn.onclick = () => {
     let lengthOfDisplayVal = displayVal.length;
+    displayVal = displayVal.slice(0, lengthOfDisplayVal - 1);
+
+    // set the displayVal to always show zero
+    if(displayVal === '')
+        displayVal = '0';
     
+    displayValElement.innerText = displayVal;
+
 }
