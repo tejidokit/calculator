@@ -68,7 +68,7 @@ clearBtn.onclick = () => {
 }
 
 
-// backspace button
+// ### Backspace Button ###
 
 backspaceBtn.onclick = () => {
     let lengthOfDisplayVal = displayVal.length;
@@ -78,6 +78,19 @@ backspaceBtn.onclick = () => {
     if(displayVal === '')
         displayVal = '0';
     
+    // update page 
     displayValElement.innerText = displayVal;
+}
 
+
+// ### Decimal Button ###
+
+// if displayVal does NOT include a decimal already, add a decimal onClck (when clicked),
+// otherwise only one decimal is present on screen/displayVal
+decimalBtn.onclick = () => {
+    if(!displayVal.includes('.'))
+        displayVal += '.';
+    
+    // update page 
+    displayValElement,innerText = displayVal;
 }
