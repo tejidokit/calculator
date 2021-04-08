@@ -18,8 +18,6 @@ var backspaceBtn = document.getElementById('calc-backspace');
 var displayValElement = document.getElementById('calc-display-val');
 
 
-
-
 // ### create Even Listner for each button  ###
 
 var displayVal = '0';
@@ -43,9 +41,61 @@ var updateDisplayVal = (clickObj) => {
     // displayVal will not show the button that is pressed
     displayVal += btnText;
     displayValElement.innerText = displayVal;
-
 }
 
+
+// ### Math Function ###
+
+var performOperation = (clickObj) => {
+    var operator = clickObj.target.innerText;
+
+    // if/when the operator is a + sign, or - sign, do whatever is in the code block for each operation it corresponds to
+    // use operator variable to pass data
+    switch (operator) {
+        case '+':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('+');
+            break;
+        
+        case '-':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('-');
+            break;
+
+        case 'x':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('*');
+            break;
+
+        case '÷':
+            pendingVal = displayVal;
+            displayVal = '0';
+            displayValElement.innerText = displayVal;
+            evalStringArray.push(pendingVal);
+            evalStringArray.push('/');
+            break;
+
+        case '=':
+            evalStringArray.push(displayVal);
+            var evaluation = eval(evalStringArray.join(' ')); //eg. ['5', '+', '5'] will turn into 5 + 5
+            displayVal = evaluation + '';
+            displayValElement.innerText = displayVal;
+            evalStringArray = [];
+            break;
+            
+        default:
+            break;
+    }
+}
 
 // whenever calcNumBtns gets clicked, updateDisplayVal will trigger, 
 // and the click event (clickObj) will automatically pass to the updateDisplayVal function
@@ -53,10 +103,10 @@ for (let i = 0; i < calcNumBtns.length; i++) {
     calcNumBtns[i].addEventListener('click', updateDisplayVal, false);
 }
 
-// for (let i = 0; i < calcOperatorBtns.length; i++) {
-//     calcOperatorBtns[i].addEventListener('click', performOperation, false);
+for (let i = 0; i < calcOperatorBtns.length; i++) {
+    calcOperatorBtns[i].addEventListener('click', performOperation, false);
 
-// }
+}
 
 
 // clear button
